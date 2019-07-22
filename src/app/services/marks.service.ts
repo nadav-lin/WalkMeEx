@@ -20,12 +20,12 @@ export class MarksService {
     return this.http.get<Mark[]>(dataUrl.marks);
   }
 
-  constructor(private http: HttpClient) {
-
-  }
-
   getMarks(): Mark[]{
     return this.marks;
+  }
+
+  getMarksOfStudent(id: string): Mark[]{
+    return this.marks.filter(mark => mark.studentId === id);
   }
 
   initMarks(): void {

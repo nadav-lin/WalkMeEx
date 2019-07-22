@@ -27,4 +27,8 @@ export class CoursesService {
   initCourses(): void {
     this.fetchCoursesFromServer().subscribe(courses => this.courses = courses);
   }
+
+  getCoursesOfStudent(studentId: string): Course[] {
+    return this.courses.filter(course => course.students.find(student => student === studentId));
+  }
 }

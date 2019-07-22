@@ -4,11 +4,15 @@
     <th>ID</th>
     <th>First name</th>
     <th>Last name</th>
+    <th>Number of courses</th>
+    <th>Average grade</th>
   </tr>
 
-  <tr *ngFor="let student of getStudents() | async">
+  <tr *ngFor="let student of getStudents()">
     <td>{{student.ID}}</td>
     <td>{{student.firstName}}</td>
     <td>{{student.lastName}}</td>
+    <td>{{getNumberOfCourses(student.ID)}}</td>
+    <td>{{getAverageMarks(student.ID)}}</td>
   </tr>
 </table>
