@@ -27,4 +27,14 @@ export class StudentService {
   initStudents(): void {
     this.fetchStudentFromServer().subscribe(students => this.students = students);
   }
+
+  addOrUpdateStudent(student: Student): void {
+    let existingStudent = this.students.find(students => students.ID === student.ID);
+    if(existingStudent) {
+      existingStudent.firstName = student.firstName;
+      existingStudent.lastName = student.lastName;
+    } else {
+      this.students.push(student);
+    }
+  }
 }
