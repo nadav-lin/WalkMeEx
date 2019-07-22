@@ -1,0 +1,14 @@
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+  </tr>
+
+  <tr *ngFor="let student of getStudents() | async">
+    <td>{{student.ID}}</td>
+    <td>{{student.firstName}}</td>
+    <td>{{student.lastName}}</td>
+  </tr>
+</table>
