@@ -12,17 +12,19 @@ export class StudentService {
 
   private students: Student[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.initStudents()
+  }
 
-  getStudents(): Observable<Student[]> {
-    if(!this.students) {
-      this.fetchStudentFromServer().subscribe(students => this.students = students);
-    }
-    return of(this.students);
+  getStudents(): Student[]{
+    return this.students;
   }
 
   fetchStudentFromServer(): Observable<Student[]> {
     return this.http.get<Student[]>(dataUrl.students);
   }
 
+  initStudents(): void {
+    this.fetchStudentFromServer().subscribe(students => this.students = students);
+  }
 }

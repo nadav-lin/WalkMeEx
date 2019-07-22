@@ -11,9 +11,24 @@ export class MarksService {
 
   marks: Mark[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.initMarks();
+  }
+
 
   fetchMarksFromServer(): Observable<Mark[]> {
-    return this.http.get<Mark[]>(dataUrl.students);
+    return this.http.get<Mark[]>(dataUrl.marks);
+  }
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  getMarks(): Mark[]{
+    return this.marks;
+  }
+
+  initMarks(): void {
+    this.fetchMarksFromServer().subscribe(marks => this.marks = marks);
   }
 }

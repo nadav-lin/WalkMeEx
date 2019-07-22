@@ -12,9 +12,19 @@ export class CoursesService {
 
   courses: Course[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.initCourses();
+  }
 
   fetchCoursesFromServer(): Observable<Course[]> {
-    return this.http.get<Mark[]>(dataUrl.students);
+    return this.http.get<Mark[]>(dataUrl.courses);
+  }
+
+  getCourses(): Course[]{
+    return this.courses;
+  }
+
+  initCourses(): void {
+    this.fetchCoursesFromServer().subscribe(courses => this.courses = courses);
   }
 }
