@@ -7,12 +7,7 @@
     <th>Number of courses</th>
     <th>Average grade</th>
   </tr>
-
-  <tr *ngFor="let student of getStudents()">
-    <td>{{student.ID}}</td>
-    <td>{{student.firstName}}</td>
-    <td>{{student.lastName}}</td>
-    <td>{{getNumberOfCourses(student.ID)}}</td>
-    <td>{{getAverageMarks(student.ID)}}</td>
-  </tr>
 </table>
+<app-student *ngFor="let student of getStudents()" [student]="student" style="width:100%"></app-student>
+
+<h1>{{edit}}</h1>
