@@ -23,11 +23,7 @@ export class StudentTableComponent implements OnInit {
   }
 
   getAverageMarks(id: string): number{
-    let studentMarks: Mark[] = this.marksService.getMarksOfStudent(id);
-    if (studentMarks.length === 0){
-      return 0;
-    }
-    return studentMarks.filter(mark => mark.mark !== -1).reduce((sum, mark) => sum+ mark.mark, 0) / studentMarks.length;
+    return this.marksService.getAverageMarksofStudent(id);
   }
 
   getNumberOfCourses(id: string): number{
