@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Course name</th>
+    <th>Number of students</th>
+    <th>Average mark</th>
+  </tr>
+
+  <tr *ngFor="let course of getCourses()">
+    <td>{{course.ID}}</td>
+    <td>{{course.name}}</td>
+    <td></td>
+    <td>{{getAverageMarks(course.ID)}}</td>
+  </tr>
+</table>
