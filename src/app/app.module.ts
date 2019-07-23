@@ -7,6 +7,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { CourseTableComponent } from './course-table/course-table.component';
 import {StudentComponent} from "./student/student.component";
 import { CourseComponent } from './course/course.component';
+import { NewStudentComponent } from './new-student/new-student.component';
+import { NewCourseComponent } from './new-course/new-course.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { CourseComponent } from './course/course.component';
     StudentTableComponent,
     CourseTableComponent,
     StudentComponent,
-    CourseComponent
+    CourseComponent,
+    NewStudentComponent,
+    NewCourseComponent
   ],
   imports: [
     BrowserModule,

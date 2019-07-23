@@ -14,6 +14,6 @@
              [ngStyle]="{'background-color' :  !!student.ID ? 'grey' : 'white'}"></td>
   <td><input #inputFirstName type="text" name="firstname" value="{{student.firstName}}" placeholder="first name"></td>
   <td><input #inputLastName type="text" name="lastname" value="{{student.lastName}}" placeholder="Last name"></td>
-  <input type="submit" value="Submit" (click)="submit(inputID.value, inputFirstName.value, inputLastName.value)">
+  <input type="button" value="Submit" (click)="submit(inputID.value, inputFirstName.value, inputLastName.value)">
 </form>
 

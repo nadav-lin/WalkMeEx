@@ -11,6 +11,7 @@ import {CoursesService} from "../services/courses.service";
 export class CourseComponent implements OnInit {
 
   @Input() course: Course;
+  @Input() isNewCoursePage= false;
   edit = false;
 
   constructor(private marksService: MarksService, private coursesService: CoursesService) { }
@@ -26,7 +27,15 @@ export class CourseComponent implements OnInit {
       let newCourse = new Course(id, name);
       this.coursesService.addOrUpdateCourse(newCourse);
     }
-    this.toggleEdit();
+    this.toggleEditOrNewCourse()
+  }
+
+  toggleEditOrNewCourse(): void {
+    if (!this.isNewCoursePage){
+      this.toggleEdit();
+    } else {
+      this.course= new Course('','');
+    }
   }
 
   toggleEdit(): void {

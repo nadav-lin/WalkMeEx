@@ -12,6 +12,7 @@ import {StudentService} from "../services/student.service";
 export class StudentComponent implements OnInit {
 
   @Input() student: Student;
+  @Input() isNewStudentPage = false;
   edit = false;
 
   constructor(private studentService: StudentService, private marksService: MarksService, private coursesService: CoursesService) {
@@ -28,7 +29,15 @@ export class StudentComponent implements OnInit {
       let newStudent = new Student(id, firstName, lastName);
       this.studentService.addOrUpdateStudent(newStudent);
     }
-    this.toggleEdit();
+    this.toggleEditOrNewStudent()
+  }
+
+  toggleEditOrNewStudent(): void {
+    if (!this.isNewStudentPage){
+      this.toggleEdit();
+    } else {
+      this.student= new Student('','','');
+    }
   }
 
   getAverageMarks(id: string): number {

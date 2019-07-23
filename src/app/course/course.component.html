@@ -12,5 +12,5 @@
   <td><input #inputID type="text" name="ID" value="{{course.ID}}" placeholder="ID" [readonly]="!!course.ID"
              [ngStyle]="{'background-color' :  !!course.ID ? 'grey' : 'white'}"></td>
   <td><input #inputName type="text" name="name" value="{{course.name}}" placeholder="name"></td>
-  <input type="submit" value="Submit" (click)="submit(inputID.value, inputName.value)">
+  <input type="button" value="Submit" (click)="submit(inputID.value, inputName.value)">
 </form>
