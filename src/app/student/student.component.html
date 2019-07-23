@@ -1,0 +1,19 @@
+<table (click)="toggleEdit()">
+  <tr *ngIf="!edit">
+    <td>{{student.ID}}</td>
+    <td>{{student.firstName}}</td>
+    <td>{{student.lastName}}</td>
+    <td>{{getNumberOfCourses(student.ID)}}</td>
+    <td>{{getAverageMarks(student.ID)}}</td>
+  </tr>
+</table>
+
+
+<form *ngIf="edit" style="display: flex; flex-direction: row">
+  <td><input #inputID type="text" name="ID" value="{{student.ID}}" placeholder="ID" [readonly]="!!student.ID"
+             [ngStyle]="{'background-color' :  !!student.ID ? 'grey' : 'white'}"></td>
+  <td><input #inputFirstName type="text" name="firstname" value="{{student.firstName}}" placeholder="first name"></td>
+  <td><input #inputLastName type="text" name="lastname" value="{{student.lastName}}" placeholder="Last name"></td>
+  <input type="submit" value="Submit" (click)="submit(inputID.value, inputFirstName.value, inputLastName.value)">
+</form>
+
