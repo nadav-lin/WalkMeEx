@@ -13,25 +13,29 @@ export class StudentComponent implements OnInit {
 
   @Input() student: Student;
   edit = false;
-  constructor(private studentService: StudentService, private marksService: MarksService, private coursesService: CoursesService) { }
+
+  constructor(private studentService: StudentService, private marksService: MarksService, private coursesService: CoursesService) {
+  }
 
   ngOnInit() {
-    if(!this.student){
+    if (!this.student) {
       this.edit = true;
     }
   }
 
   submit(id: string, firstName: string, lastName: string): void {
-    let newStudent = new Student(id, firstName ,lastName)
-    this.studentService.addOrUpdateStudent(newStudent);
+    if (!!id && !!firstName && !!lastName) {
+      let newStudent = new Student(id, firstName, lastName);
+      this.studentService.addOrUpdateStudent(newStudent);
+    }
     this.toggleEdit();
   }
 
-  getAverageMarks(id: string): number{
+  getAverageMarks(id: string): number {
     return this.marksService.getAverageMarksofStudent(id);
   }
 
-  getNumberOfCourses(id: string): number{
+  getNumberOfCourses(id: string): number {
     return this.coursesService.getCoursesOfStudent(id).length;
   }
 
