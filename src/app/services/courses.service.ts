@@ -31,4 +31,13 @@ export class CoursesService {
   getCoursesOfStudent(studentId: string): Course[] {
     return this.courses.filter(course => course.students.find(student => student === studentId));
   }
+
+  addOrUpdateCourse(course: Course): void {
+    let existingCourse = this.courses.find(courses => courses.ID === course.ID);
+    if(existingCourse) {
+      existingCourse.name = course.name;
+    } else {
+      this.courses.push(course);
+    }
+  }
 }

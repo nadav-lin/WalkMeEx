@@ -6,6 +6,7 @@ import { StudentTableComponent } from './student-table/student-table.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CourseTableComponent } from './course-table/course-table.component';
 import {StudentComponent} from "./student/student.component";
+import { CourseComponent } from './course/course.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {StudentComponent} from "./student/student.component";
     AppComponent,
     StudentTableComponent,
     CourseTableComponent,
-    StudentComponent
+    StudentComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,

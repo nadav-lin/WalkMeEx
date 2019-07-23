@@ -5,11 +5,5 @@
     <th>Number of students</th>
     <th>Average mark</th>
   </tr>
-
-  <tr *ngFor="let course of getCourses()">
-    <td>{{course.ID}}</td>
-    <td>{{course.name}}</td>
-    <td>{{course.students.length}}</td>
-    <td>{{getAverageMarks(course.ID)}}</td>
-  </tr>
 </table>
+<app-course *ngFor="let course of getCourses()" [course]="course"></app-course>

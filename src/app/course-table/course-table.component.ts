@@ -18,8 +18,4 @@ export class CourseTableComponent implements OnInit {
   getCourses(): Course[] {
     return this.courseService.getCourses();
   }
-
-  getAverageMarks(courseId: string): number {
-    return this.marksService.getAverageMarksOfCourse(courseId);
-  }
 }
